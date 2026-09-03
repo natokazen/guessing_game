@@ -4,7 +4,7 @@ use std::cmp::Ordering;
 fn main() {
     println!("Guessing Game");
 
-    let secret_number = 41;
+    let secret_number = rand::random_range(1..101);
 
     loop {
         println!("Enter a number:");
@@ -15,14 +15,13 @@ fn main() {
         let guess :u32 = guess.trim().parse().expect("failed to convert into number");
 
         match guess.cmp(&secret_number) {
-             Ordering::Less => println!("Too small!"),
-             Ordering::Greater => println!("Too big!"),
-             Ordering::Equal => { 
-                 println!("You win! 🥳");
-                 break;
-             }
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Less => println!("Too small!"),
+            Ordering::Equal => {
+                println!("You win! 🥳");
+                break;
+            }
         }
     }
 
-    
 }
