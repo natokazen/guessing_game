@@ -1,16 +1,28 @@
 extern crate rand;
+use std::io::{self, Write};
 use std::cmp::Ordering;
 
 fn main() {
-    println!("Guessing Game");
+    println!("\n --------------------- 󱎓 Welcome to Guess the Number --------------------------- ");
+    print!(r#"
+          _____                 _             _____              
+         / ___/_ _____ ___ ___ (_)__  ___ _  / ___/__ ___ _  ___ 
+        / (_ / // / -_|_-<(_-</ / _ \/ _ `/ / (_ / _ `/  ' \/ -_)
+        \___/\_,_/\__/___/___/_/_//_/\_, /  \___/\_,_/_/_/_/\__/ 
+                                    /___/                        
+        "#);
 
     let secret_number = rand::random_range(1..101);
 
     loop {
-        println!("Enter a number:");
 
         let mut guess = String::new();
-        std::io::stdin().read_line(&mut guess).expect("reading input failed");
+
+        print!("\n Enter a number: ");
+        io::stdout().flush().expect("Input flush failed");
+
+
+        io::stdin().read_line(&mut guess).expect("reading input failed");
 
         let guess :u32 = guess.trim().parse().expect("failed to convert into number");
 
