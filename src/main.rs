@@ -29,7 +29,7 @@ fn main() {
         let guess :u32 = guess.trim().parse().expect("failed to convert into number");
 
         if counter == MAX_GUESS {
-            println!("Game Over!");
+            println!("\n ------------------- Game Over! ------------------------\n");
             break;
 
         } else {
@@ -43,7 +43,7 @@ fn main() {
 
                 Ordering::Less => {
                     println!("Too small!");
-                    counter +=1;
+                    counter += 1;
                 }
 
                 Ordering::Equal => {
