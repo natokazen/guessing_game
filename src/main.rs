@@ -29,7 +29,8 @@ fn main() {
         let guess :u32 = guess.trim().parse().expect("failed to convert into number");
 
         if counter == MAX_GUESS {
-            println!("\n ------------------- Game Over! ------------------------\n");
+            println!("\n ------------------- Game Over ------------------------\n");
+            println!("                    You Lost 😋!           ");
             break;
 
         } else {
