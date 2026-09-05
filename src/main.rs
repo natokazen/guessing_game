@@ -30,7 +30,7 @@ fn main() {
 
         if counter == MAX_GUESS {
             println!("\n ------------------- Game Over ------------------------\n");
-            println!("                    You Lost 😋!           ");
+            println!("                    You Lost 😋! Secret Number was: {}", secret_number);
             break;
 
         } else {
