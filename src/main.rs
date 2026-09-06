@@ -50,7 +50,13 @@ fn main() {
                 .read_line(&mut guess)
                 .expect("reading input failed");
 
-            let guess: u32 = guess.trim().parse().expect("failed to convert into number");
+            let guess: u32 = match guess.trim().parse() {
+                Ok(num) => num,
+                Err(_) => {
+                    println!("\n You've hit a typo! ⌨️, Please enter only numbers.");
+                    continue;
+                }
+            };
 
             let distance = guess.abs_diff(secret_number);
 
