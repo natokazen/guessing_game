@@ -22,7 +22,7 @@ fn main() {
     loop {
         // Check if Counter reaches MAX_GUESS to exit program
         if counter == MAX_GUESS {
-            println!("\n ------------------- Game Over ------------------------\n");
+            println!("\n ------------------------ Game Over --------------------------------\n");
             println!(
                 "            You Lost 😋! Secret Number was: {}",
                 secret_number
@@ -83,7 +83,7 @@ fn main() {
                 }
 
                 Ordering::Equal => {
-                    println!("\n ---------------------- You won! 🥳 ------------------------- ");
+                    println!("\n -------------------------------- 󱎓 You won! 🥳  ------------------------------- ");
                     break;
                 }
             }
