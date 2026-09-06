@@ -12,12 +12,21 @@ fn main() {
                                     /___/
         "#);
 
-    const MAX_GUESS :u32 = 7;
+    const MAX_GUESS :u32 = 6;
     let secret_number = rand::random_range(1..101);
     let mut counter :u32 = 0;
+    let mut attempts :u32 = 7;
 
     loop {
 
+        if attempts == 7{
+
+            println!("\n\n You've got 7 attempts.");
+        } else if attempts < 2 {
+            println!("\n\n Last attempt!");
+        } else {
+            println!("\n\n Attempts {}/7 left.", attempts);
+        }
         let mut guess = String::new();
 
         print!("\n Enter a number: ");
@@ -30,7 +39,7 @@ fn main() {
 
         if counter == MAX_GUESS {
             println!("\n ------------------- Game Over ------------------------\n");
-            println!("                    You Lost 😋! Secret Number was: {}", secret_number);
+            println!("            You Lost 😋! Secret Number was: {}", secret_number);
             break;
 
         } else {
@@ -40,11 +49,13 @@ fn main() {
                 Ordering::Greater => {
                     println!("Too big!");
                     counter += 1;
+                    attempts -=1;
                 }
 
                 Ordering::Less => {
                     println!("Too small!");
                     counter += 1;
+                    attempts -=1;
                 }
 
                 Ordering::Equal => {
