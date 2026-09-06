@@ -52,19 +52,32 @@ fn main() {
 
             let guess: u32 = guess.trim().parse().expect("failed to convert into number");
 
+            let distance = guess.abs_diff(secret_number);
+
+            // if distance == 0 {
+            //     // Does nothing here
+            //     // Also discovered that you could leave it like to but it will still compile
+            if distance <= 5 {
+                println!("\n 🔥 You're boiling hot!");
+            } else if distance <= 15 {
+                println!("\n ☀️ You're warm!");
+            } else {
+                println!("\n ❄️ You're freezing cold!");
+            }
+
             match guess.cmp(&secret_number) {
                 Ordering::Greater => {
-                    println!("Too big!");
+                    println!("    TOO BIG!");
                     counter += 1;
                 }
 
                 Ordering::Less => {
-                    println!("Too small!");
+                    println!("    TOO SMALL!");
                     counter += 1;
                 }
 
                 Ordering::Equal => {
-                    println!("You win! 🥳");
+                    println!("\n ---------------------- You won! 🥳 ------------------------- ");
                     break;
                 }
             }
