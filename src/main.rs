@@ -60,9 +60,6 @@ fn main() {
 
             let distance = guess.abs_diff(secret_number);
 
-            // if distance == 0 {
-            //     // Does nothing here
-            //     // Also discovered that you could leave it like to but it will still compile
             if distance <= 5 {
                 println!("\n 🔥 You're boiling hot!");
             } else if distance <= 15 {
